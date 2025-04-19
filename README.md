@@ -1,66 +1,109 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎾 Proyecto ATP - Gestión de Tenistas y Torneos
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este proyecto web ha sido desarrollado utilizando **Laravel** con el objetivo de simular una pequeña plataforma de gestión de **tenistas profesionales** y su participación en **torneos ATP**. La aplicación permite visualizar tenistas, torneos y gestionar su relación, en un entorno claro, moderno y funcional.
 
-## About Laravel
+Está pensado como una demostración educativa del uso de **Laravel 10**, enfocándose en aspectos clave como el uso de migraciones, seeders, relaciones entre modelos, controladores y vistas Blade.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌟 Descripción general
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+La plataforma permite:
+- Mostrar una lista de **tenistas registrados**
+- Consultar la **información individual** de cada tenista
+- Crear, editar o eliminar **torneos ATP**
+- Asignar uno o varios tenistas a un torneo específico (relación **muchos a muchos**)
+- Usar formularios web para realizar acciones de forma intuitiva
+- Visualizar los torneos en los que ha participado cada tenista
 
-## Learning Laravel
+Todo esto sobre una base de datos relacional bien estructurada, con un diseño claro y adaptado a móviles gracias a **Bootstrap**.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🧠 Funcionalidades principales
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- CRUD completo de tenistas
+- CRUD completo de torneos
+- Relación muchos a muchos entre tenistas y torneos
+- Formularios y validaciones en el lado del servidor
+- Vistas Blade personalizadas para cada sección
+- Seeders para poblar la base de datos con ejemplos reales
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠️ Tecnologías utilizadas
 
-### Premium Partners
+- **Lenguaje**: PHP 8+
+- **Framework**: Laravel 10
+- **Frontend**: Blade Templates + Bootstrap 5
+- **Base de datos**: MySQL o SQLite
+- **ORM**: Eloquent
+- **Manejo de rutas**: Laravel Web Routes
+- **Herramientas de desarrollo**: Laravel Artisan, Composer
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## ⚙️ Cómo ejecutar el proyecto
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Requisitos
+- PHP 8+
+- Composer
+- MySQL / SQLite
+- Laravel instalado globalmente o Laravel Sail
 
-## Code of Conduct
+### Pasos para correr la app
+```bash
+git clone https://github.com/tuusuario/proyecto-tenistas-laravel.git
+cd proyecto-tenistas-laravel
+composer install
+cp .env.example .env
+php artisan key:generate
+# Configurar base de datos en el archivo .env
+php artisan migrate --seed
+php artisan serve
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Accede desde tu navegador a:  
+[http://localhost:8000](http://localhost:8000)
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📁 Estructura del proyecto
 
-## License
+```
+├── app/
+│   └── Models/
+│       ├── Tenista.php
+│       └── Torneo.php
+├── resources/
+│   └── views/
+│       ├── tenistas/
+│       └── torneos/
+├── routes/
+│   └── web.php
+├── database/
+│   ├── migrations/
+│   └── seeders/
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🎯 Objetivo del proyecto
+
+Este proyecto tiene fines educativos y fue creado para **practicar el uso de relaciones entre entidades en Laravel**, la creación de formularios, la implementación de vistas personalizadas y la estructuración de una aplicación MVC realista.
+
+También es una excelente base para expandir con más funcionalidades, como autenticación, subida de imágenes, estadísticas por jugador, etc.
+
+---
+
+## 🤝 Autor
+
+**Kevin Bermúdez**  
+_Técnico Superior en Desarrollo de Aplicaciones Web_  
+💡 Amante del desarrollo web y los retos de programación.
+
+---
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo **MIT**. Puedes usarlo libremente para proyectos personales, educativos o como base para desarrollos más avanzados.
